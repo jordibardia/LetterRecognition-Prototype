@@ -1,8 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class BubbleSpawnManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject bubble;
+
     private bool spawnBubbles = true;
     private string[] possibleCharacters = { "s", "*", "!", "£" };
 
@@ -15,9 +19,9 @@ public class BubbleSpawnManager : MonoBehaviour
     {
         Vector2 spawnPos = Vector2.zero;
 
-        while(spawnBubbles == true)
+        while (spawnBubbles == true)
         {
-            yield return new WaitForSeconds(4.0f);
+            yield return new WaitForSeconds(1.0f);
 
             spawnPos.x = Random.Range(-7.5f, 7.5f);
             spawnPos.y = -6.0f;
@@ -25,8 +29,8 @@ public class BubbleSpawnManager : MonoBehaviour
             System.Random charSelector = new System.Random();
             int charInd = charSelector.Next(0, possibleCharacters.Length);
 
-            GraphemeBubble bubble = new GraphemeBubble();
-            bubble.grapheme = possibleCharacters[charInd];
+            var textComponent = bubble.GetComponentInChildren<TextMeshProUGUI>();
+            textComponent.text = possibleCharacters[charInd];
 
             Instantiate(bubble, spawnPos, Quaternion.identity);
         }

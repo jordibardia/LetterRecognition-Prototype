@@ -41,7 +41,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Game Objects
+  - name: GameObjects
     uniqueID: 827793089
     locked: 0
   - name: Characters
