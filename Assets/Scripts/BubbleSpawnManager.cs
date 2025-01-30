@@ -8,6 +8,7 @@ public class BubbleSpawnManager : MonoBehaviour
     private GameObject bubble;
 
     private bool spawnBubbles = true;
+    private float currWait = 1.0f;
     private string[] possibleCharacters = { "s", "*", "!", "£" };
 
     void Start()
@@ -21,7 +22,20 @@ public class BubbleSpawnManager : MonoBehaviour
 
         while (spawnBubbles == true)
         {
-            yield return new WaitForSeconds(1.0f);
+            if (Time.time > 15.0f)
+            {
+                currWait = 0.3f;
+            }
+            else if (Time.time > 10.0f)
+            {
+                currWait = 0.5f;
+            }
+            else if (Time.time > 5.0f)
+            {
+                currWait = 0.8f;
+            }
+
+            yield return new WaitForSeconds(currWait);
 
             spawnPos.x = Random.Range(-7.5f, 7.5f);
             spawnPos.y = -6.0f;
