@@ -3,8 +3,6 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    private int health = 3;
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -18,7 +16,7 @@ public class PlayerController : MonoBehaviour
                 string bubbleText = bubble.GetComponentInChildren<TextMeshProUGUI>().text;
 
                 if (bubbleText != "s")
-                    health -= 1;
+                    GetComponent<Health>().RemoveHeart();
 
                 Destroy(rayHit.collider.gameObject);
             }
