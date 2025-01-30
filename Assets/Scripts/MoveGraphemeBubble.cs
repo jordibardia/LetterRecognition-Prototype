@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class MoveGraphemeBubble : MonoBehaviour
@@ -20,7 +21,15 @@ public class MoveGraphemeBubble : MonoBehaviour
     void Update()
     {
         if (this.transform.position.y >= yLimit)
+        {
+            if (GetComponentInChildren<TextMeshProUGUI>().text == "s")
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<Health>().RemoveHeart();
+            }
+
             Destroy(this.gameObject);
+        }
 
         float newX = startX + Mathf.Sin(Time.time * sineFrequency) * sineAmplitude;
         float newY = transform.position.y + verticalSpeed * Time.deltaTime;
