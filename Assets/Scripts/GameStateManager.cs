@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameStateManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+
         GameOver.SetActive(false);
         GameWin.SetActive(false);
     }
@@ -32,5 +35,9 @@ public class GameStateManager : MonoBehaviour
             GameOver.SetActive(true);
             Time.timeScale = 0.0f;
         }
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
