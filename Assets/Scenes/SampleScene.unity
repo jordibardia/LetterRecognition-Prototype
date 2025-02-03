@@ -1152,7 +1152,7 @@ GameObject:
   - component: {fileID: 1015070792}
   m_Layer: 0
   m_Name: BubbleSpawnManager
-  m_TagString: Untagged
+  m_TagString: BubbleSpawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 2184515122184596137, guid: 752f9efa453b8da4ab39322753016316, type: 3}
+  spawnPositionY: -6
 --- !u!1 &1107904946
 GameObject:
   m_ObjectHideFlags: 0

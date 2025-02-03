@@ -16,9 +16,12 @@ public class PlayerController : MonoBehaviour
                 string bubbleText = bubble.GetComponentInChildren<TextMeshProUGUI>().text;
 
                 if (bubbleText != "s")
+                {
                     GetComponent<Health>().RemoveHeart();
-
-                Destroy(rayHit.collider.gameObject);
+                    bubble.GetComponent<MoveGraphemeBubble>().moveUp = false;
+                }
+                else
+                    Destroy(bubble);
             }
         }
     }
